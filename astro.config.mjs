@@ -8,11 +8,6 @@ import netlify from "@astrojs/netlify";
 export default defineConfig({
   renderers: ['@astrojs/renderer-react'],
   integrations: [react(), tailwind()],
-  image: {
-    remotePatterns: [{
-      protocol: "https"
-    }]
-  },
   output: "server",
   adapter: netlify()
 });
