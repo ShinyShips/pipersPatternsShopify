@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section class="w-full">
+    <div class="flex flex-col lg:flex-row h-full">
+        <div class="relative flex flex-col justify-center w-full border-b-2 lg:border-r-2 lg:border-b-0 border-black bg-brand-yellow p-12 text-center">
+            <div class="w-fit mx-auto">
+                <div>
+                    <h1 class="lg:leading-tighter text-5xl font-medium sm:text-6xl md:text-7xl xl:text-[4.5rem] 2xl:text-[5rem] text-black">
+                    Stylish Bandanas for Your Furry Best Friend
+                    </h1>
+                </div>
+                <div class="flex flex-col items-center space-y-4">
+                    <p class="mx-auto max-w-[700px] text-black md:text-2xl dark:text-black my-4">
+                        Discover our collection of stylish and durable bandanas for dogs. Make your furry friend the talk of
+                        the park.
+                    </p>
+                    <div class="relative flex justify-center w-full lg:w-fit">
+                        <div class="hidden absolute h-full w-full bg-black border-black translate-x-1 translate-y-1 rounded-md" />
+                        <a
+                            class="relative flex w-full py-4 items-center justify-center rounded bg-black px-8 text-lg font-medium text-white border-2 border-black transition-colors hover:bg-[#FFC0CB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50"
+                            href="/shop"
+                        >
+                            Shop Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative w-full my-auto h-full flex flex-grow justify-center items-center p-12">
+            <Image
+                fetchpriority="high"
+                alt="Dog wearing bandana"
+                class="relative my-auto overflow-hidden lg:max-w-lg"
+                src="https://ik.imagekit.io/3baypac61/PIPER.png"
+                loading="eager"
+                width="512"
+                height="406"
+                decoding="async"
+            />
+        </div>
+    </div>
+</section>

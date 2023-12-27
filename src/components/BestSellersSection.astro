@@ -1,0 +1,32 @@
+---
+import Card from './Card.astro';
+---
+
+
+<section class="flex w-full py-12 md:py-24 lg:py-32 bg-white border-b-2 border-t-2 border-black justify-center">
+    <div class="container flex flex-col justify-center items-center space-y-12 px-4 md:px-6">
+        <div class="flex flex-col items-center justify-center space-y-4 text-center">
+            <div class="space-y-2">
+                <h2 class="text-4xl font-medium sm:text-6xl text-black">Meet Our Best Sellers</h2>
+                <p class="max-w-[900px] text-black md:text-2xl/relaxed lg:text-base/relaxed xl:text-2xl/relaxed dark:text-black">
+                These are the bandanas our customers can't get enough of. Take a look and find your dog's next
+                favorite accessory.
+                </p>
+            </div>
+        </div>
+        <div class="mx-auto grid w-4/5 items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3  ">
+            <Card imagePath="https://ik.imagekit.io/3baypac61/holiday.webp" name='Holiday Bandanas' description= 'Perfect for the holiday season this year'/>
+            <Card imagePath="https://ik.imagekit.io/3baypac61/patriotic.webp" name='Patriotic Bandanas' description= 'Show off your patriotic side with these patterns'/>
+            <Card imagePath="https://ik.imagekit.io/3baypac61/sports.webp" name='Sports Team Bandanas' description= 'Lets go sports!'/>
+        </div>
+        <div class="relative flex justify-center w-fit">
+            <div class="absolute h-full w-full bg-black border-black translate-x-1 translate-y-1 rounded-md" />
+            <a
+                class="relative inline-flex w-fit h-10 items-center justify-center rounded-md bg-brand-yellow px-4 sm:px-8 text-lg font-medium text-black shadow-lg border-2 border-black transition-colors hover:bg-[#FFC0CB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50"
+                href="/shop"
+            >
+                SHOP ALL BANDANAS
+            </a>
+        </div>
+    </div>
+</section>
