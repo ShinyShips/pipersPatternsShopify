@@ -1,13 +1,18 @@
 import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
-
 import tailwind from "@astrojs/tailwind";
+
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
   renderers: ['@astrojs/renderer-react'],
   integrations: [react(), tailwind()],
-    image: {
-    remotePatterns: [{ protocol: "https" }],
-  }
+  image: {
+    remotePatterns: [{
+      protocol: "https"
+    }]
+  },
+  output: "server",
+  adapter: netlify()
 });
