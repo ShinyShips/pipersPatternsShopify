@@ -6,7 +6,7 @@ type CardProps = {
     name: string;
     description: string;
 }
-const { imagePath, name, description } = Astro.props;
+const { imagePath, name, description, href } = Astro.props;
 ---
 
 <div class="relative h-full">
@@ -34,7 +34,7 @@ const { imagePath, name, description } = Astro.props;
             <div class="absolute h-full w-full bg-black border-black translate-x-1 translate-y-1 rounded-md" />
             <a
                 class="relative inline-flex h-10 items-center justify-center rounded-md bg-[#FFD700] px-8 text-lg font-medium text-black shadow-lg border-2 border-black transition-colors hover:bg-[#FFC0CB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black disabled:pointer-events-none disabled:opacity-50"
-                href="#"
+                href={`/products/${href}`}
             >
                 SEE OPTIONS
             </a>

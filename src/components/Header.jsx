@@ -43,48 +43,48 @@ export default function Header() {
                         Contact
                         </a>
                     </nav>
-                    <nav className="flex w-20 justify-between" >
-                        <button
+                    <nav className="flex w-20 items-center justify-between" >
+                        <div
                             className="flex lg:ml-auto"
                             disabled={open}
                             onClick={handleCartIconClick}
                             aria-label="Open cart"
                         >
                             <ShoppingCartIcon />
-                        </button>
+                        </div>
                         { !open ?
                             <button
-                                className={`flex lg:hidden transition-all duration-250 ${open ? "text-white" : "text-black"}`}
+                                className={`flex justify-center items-center lg:hidden transition-all duration-250 ${open ? "text-white" : "text-black"}`}
                                 onClick={() => setOpen(!open)}
                                 aria-label="Open menu"
                             >
                                 <MenuIcon />
                             </button> :
                             <div className="ml-3 flex h-7 items-center">
-                            <button
-                                onClick={() => setOpen(!open)}
-                                type="button"
-                                className="-m-2 p-2 text-white hover:text-gray-500"
-                                aria-label='Close menu'
-                            >
-                                <span className="sr-only">Close panel</span>
-                                <svg
-                                className="h-6 w-6"
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth="1.5"
-                                stroke="currentColor"
-                                aria-hidden="true"
+                                <button
+                                    onClick={() => setOpen(!open)}
+                                    type="button"
+                                    className="-m-2 p-2 text-white hover:text-gray-500"
+                                    aria-label='Close menu'
                                 >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                                </svg>
-                            </button>
-                        </div>
+                                    <span className="sr-only">Close panel</span>
+                                    <svg
+                                    className="h-6 w-6"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    aria-hidden="true"
+                                    >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                    </svg>
+                                </button>
+                            </div>
                         }
                     </nav>
                 </div>

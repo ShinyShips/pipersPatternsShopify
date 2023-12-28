@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {
+    cart,
+    isCartDrawerOpen,
+    removeCartItems,
+    isCartUpdating,
+} from "../stores/cart";
 
 export default function CartDrawer({isOpen, onClose}) {
-    const [cart, setCart] = useState(null);
-    const [isCartUpdating, setIsCartUpdating] = useState(false);
     const cartDrawerEl = useRef(null);
 
     useEffect(() => {
@@ -12,8 +16,8 @@ export default function CartDrawer({isOpen, onClose}) {
     }
     }, [isOpen]);
 
-    const removeItem = () => {
-    // remove item from cart
+    const removeItem = (id) => {
+        removeCartItems([id]);
     };
 
     const closeCartDrawer = () => {
@@ -74,18 +78,75 @@ export default function CartDrawer({isOpen, onClose}) {
                         </div>
                     </div>
                     <div className="px-4 mt-8">
-                        Cart Items
-                    </div>
-                    <div className="absolute flex flex-col w-full bottom-0 px-4 py-8 border-t">
-                        <div className="flex justify-between w-full font-semibold">
-                            <p>Subtotal</p>
-                            <p className='text-right'>$15.00</p>
+                        <div className="flex-1 overflow-y-scroll">
+                            <div className="px-5">
+                            {cart.value && cart.value.lines?.nodes.length > 0 ? (
+                                <ul role="list" className={`divide-y divide-zinc-100 ${cartIsUpdatingClass}`}>
+                                {cart.value.lines.nodes.map((item) => (
+                                    <li className="grid py-8 grid-cols-12 gap-3" key={item.id}>
+                                    <div className="overflow-hidden rounded-lg col-span-3 lg:col-span-2">
+                                        <ShopifyImage
+                                        image={item.merchandise.image}
+                                        classList="object-cover h-full object-center aspect-1"
+                                        sizes="(min-width: 100px) 100px"
+                                        loading="lazy"
+                                        />
+                                    </div>
+                                    <div className="col-span-7 lg:col-span-8 flex flex-col gap-2">
+                                        <a className="hover:underline w-fit" href={`/products/${item.merchandise.product.handle}`}>
+                                        {item.merchandise.product.title}
+                                        </a>
+                                        <p className="text-xs">
+                                        <Money price={item.cost.amountPerQuantity} />
+                                        </p>
+                                    </div>
+                                    <div className="col-span-2 items-end flex justify-between flex-col">
+                                        <button
+                                        onClick={() => {
+                                            removeItem(item.id);
+                                        }}
+                                        type="button"
+                                        disabled={isCartUpdating}
+                                        >
+                                        {/* SVG code omitted for brevity */}
+                                        </button>
+                                        <div>
+                                        <p className="font-medium">
+                                            <Money price={item.cost.totalAmount} />
+                                        </p>
+                                        </div>
+                                    </div>
+                                    </li>
+                                ))}
+                                </ul>
+                            ) : (
+                                <div className="text-center mt-20">
+                                <p className="text-gray-500">Your cart is empty</p>
+                                <a href="/" className="font-semibold text-emerald-900 hover:text-emerald-700">
+                                    Continue Shopping <span aria-hidden="true"> &rarr;</span>
+                                </a>
+                                </div>
+                            )}
+                            </div>
                         </div>
-                        <p className="text-sm mt-1">Shipping and taxes calculated at checkout.</p>
-                        <button className='relative w-full h-fit mt-6 p-4 bg-black text-white rounded-lg'>
-                            Checkout
-                        </button>
                     </div>
+                    {cart.value && cart.value.lines?.nodes.length > 0 &&
+                        <div className="absolute flex flex-col w-full bottom-0 px-4 py-8 border-t">
+                            <div className="flex justify-between w-full font-semibold">
+                                <p>Subtotal</p>
+                                <p className='text-right'>
+                                    <Money
+                                        price={cart.value.cost.subtotalAmount}
+                                        showCurrency={true}
+                                    />
+                                </p>
+                            </div>
+                            <p className="text-sm mt-1">Shipping and taxes calculated at checkout.</p>
+                            <a href={cart.value.checkoutUrl} className='relative w-full h-fit mt-6 p-4 bg-black text-white rounded-lg'>
+                                Checkout
+                            </a>
+                        </div>
+                    }
                 </div>
                 </div>
             </div>

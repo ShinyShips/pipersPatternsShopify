@@ -2,7 +2,7 @@
 import { getProductByHandle } from "./../../utils/shopify";
 import { setCache } from "../../utils/cache";
 
-import BaseLayout from "../../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import NotFoundLayout from "../../layouts/NotFoundLayout.astro";
 import AddToCartForm from "../../components/AddToCartForm.jsx";
 import ProductImageGallery from "../../components/ProductImageGallery.astro";
@@ -29,12 +29,12 @@ setCache.short(Astro);
   !product ? (
     <NotFoundLayout title="Product not found" message="Product not found" />
   ) : (
-    <BaseLayout title={product.title}>
+    <Layout title={product.title}>
       <div class="container pt-6">
         <ProductBreadcrumb title={product.title} />
       </div>
 
-      <section class="container">
+      <section class="container px-4">
         <div class="pb-16 pt-6 lg:grid lg:grid-cols-12 lg:gap-20">
           <div class="lg:col-span-7">
             <ProductImageGallery images={product.images} />
@@ -69,6 +69,6 @@ setCache.short(Astro);
       <section class="container">
         <ProductRecommendations productId={product.id} buyerIP={ip} />
       </section>
-    </BaseLayout>
+    </Layout>
   )
 }

@@ -13,7 +13,7 @@ const { product } = Astro.props as Props;
 
 <a
   href={`/products/${product?.handle}`}
-  class="flex flex-col group overflow-hidden rounded-lg mx-8 border-l-orange-100 shadow hover:shadow-md"
+  class="flex flex-col group overflow-hidden rounded-lg mx-8 border-l-orange-100 shadow-lg hover:shadow-md"
 >
   <div class="relative">
     <ShopifyImage
@@ -32,7 +32,7 @@ const { product } = Astro.props as Props;
     <div
       class="absolute inset-0 z-10 grid items-end justify-items-center opacity-0 transition-all group-hover:bg-black/10 group-hover:opacity-100"
     >
-      <button class="button w-full gap-3 rounded-none">
+      <button class="flex justify-center w-full bg-brand-pink py-2 text-black gap-3 rounded-none">
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
