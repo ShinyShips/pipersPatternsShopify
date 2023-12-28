@@ -43,6 +43,7 @@ export async function initCart() {
   if (!sessionStarted) {
     sessionStorage.setItem("sessionStarted", "true");
     const localCart = cart.get();
+    console.log(localCart)
     const cartId = localCart?.id;
     if (cartId) {
       const data = await getCart(cartId);
