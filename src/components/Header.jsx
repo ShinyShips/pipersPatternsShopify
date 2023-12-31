@@ -36,7 +36,7 @@ export default function Header() {
                         <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="/shop">
                         Shop
                         </a>
-                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black scroll-smooth" href="#about">
+                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black scroll-smooth" href="/#about">
                         About
                         </a>
                         <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="#">
