@@ -39,11 +39,9 @@ export const cart = persistentAtom<z.infer<typeof CartResult>>(
 // https://shopify.dev/custom-storefronts/cart#considerations
 export async function initCart() {
   const sessionStarted = sessionStorage.getItem("sessionStarted");
-  console.log(sessionStorage)
   if (!sessionStarted) {
     sessionStorage.setItem("sessionStarted", "true");
     const localCart = cart.get();
-    console.log(localCart)
     const cartId = localCart?.id;
     if (cartId) {
       const data = await getCart(cartId);
@@ -68,7 +66,6 @@ export async function initCart() {
 export async function addCartItem(item: { id: string; quantity: number }) {
   const localCart = cart.get();
   const cartId = localCart?.id;
-  console.log(localCart);
   isCartUpdating.set(true);
 
   if (!cartId) {

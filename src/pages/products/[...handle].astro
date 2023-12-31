@@ -22,6 +22,8 @@ if (!product) {
 }
 
 const firstVariant = product?.variants.nodes[0];
+console.log(firstVariant?.price);
+
 setCache.short(Astro);
 ---
 

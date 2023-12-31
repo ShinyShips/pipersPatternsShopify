@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DogIcon from '../icons/DogIcon.jsx';
 import MenuIcon from '../icons/MenuIcon.jsx';
 import ShoppingCartIcon from '../icons/ShoppingCartIcon.jsx';
@@ -9,7 +9,7 @@ import CartDrawer from './CartDrawer.jsx';
 
 export default function Header() {
     const [open, setOpen] = useState(false);
-    const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+    const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);    
 
     const handleCartIconClick = () => {
         setIsCartDrawerOpen(true);
