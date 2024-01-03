@@ -1,7 +1,52 @@
 ---
 import { Image } from "astro:assets";
 import Piper from "../assets/PIPER.png";
+import sparkles from "../assets/sparkles.png";
+import bone from "../assets/bone.png";
+import nametag from "../assets/nametag.png";
 ---
+
+<script type="module">
+    import { gsap } from "https://cdn.skypack.dev/gsap";
+    import { ScrollTrigger } from "https://cdn.skypack.dev/gsap/ScrollTrigger";
+
+    window.addEventListener('load', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#parallax", {
+            yPercent: -30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#parallax",
+                // start: "top bottom", // the default values
+                // end: "bottom top",
+                scrub: true
+            }, 
+        });
+
+        gsap.to("#parallax2", {
+            yPercent: -25,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#parallax",
+                // start: "top bottom", // the default values
+                // end: "bottom top",
+                scrub: true
+            }, 
+        });
+
+        gsap.to("#parallax3", {
+            yPercent: -45,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#parallax",
+                // start: "top bottom", // the default values
+                // end: "bottom top",
+                scrub: true
+            }, 
+        });
+    });
+</script>
 
 <section class="w-full bg-brand-pink">
     <div class="flex flex-col lg:flex-row h-full">
@@ -30,7 +75,8 @@ import Piper from "../assets/PIPER.png";
             </div>
         </div>
         <div class="relative w-full my-auto h-full flex flex-grow justify-center items-center p-12 bg-brand-pink">
-            <Image
+            <div class="relative">
+                <Image
                 fetchpriority="high"
                 alt="Dog wearing bandana"
                 class="relative my-auto overflow-hidden lg:max-w-lg"
@@ -40,6 +86,37 @@ import Piper from "../assets/PIPER.png";
                 height="406"
                 decoding="async"
             />
+            <div class="absolute top-0 -right-4 w-20 md:w-32 overflow-hidden lg:max-w-lg" id="parallax">
+                <Image
+                    fetchpriority="high"
+                    alt="sparkles graphic"
+                    class="w-full h-auto"
+                    src={sparkles}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
+            <div class="absolute -bottom-8 -left-10 w-52 md:w-72 my-auto overflow-hidden lg:max-w-lg" id="parallax2">
+                <Image
+                    fetchpriority="high"
+                    alt="bone graphic"
+                    class="w-full h-auto"
+                    src={bone}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
+            <div class="absolute bottom-8 -right-4 my-auto w-32 md:w-48 overflow-hidden lg:max-w-lg" id="parallax3">
+                <Image
+                    fetchpriority="high"
+                    alt="Piper nametag graphic"
+                    class="w-full h-auto"
+                    src={nametag}
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
+            </div>
         </div>
     </div>
 </section>

@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import ReviewsHeading from "../assets/ReviewsHeading.png";
+import '../styles/slideshow.css';
+---
+
+<section class="relative flex flex-col w-full h-max py-12 border-b-2 border-black bg-brand-pink">
+    <Image
+        fetchpriority="high"
+        alt="Reviews Heading"
+        class="absolute -top-6 right-8 w-48 my-auto overflow-hidden"
+        src={ReviewsHeading}
+        loading="eager"
+        width="512"
+        height="406"
+        decoding="async"
+        />
+    <div class="w-full h-[24.5rem]" id="slideshow">
+        <div class="py-24 h-full" id="images" />
+    </div>
+</section>

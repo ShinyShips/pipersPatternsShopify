@@ -1,0 +1,19 @@
+#slideshow {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+#images {
+    background: url(../assets/Reviews.png);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 600%;
+    animation: slideshow 60s linear infinite;
+}
+@keyframes slideshow {
+    100% { 
+        transform: translateX(-84%);  
+    }
+}
