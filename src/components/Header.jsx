@@ -9,15 +9,6 @@ import CartDrawer from './CartDrawer.jsx';
 
 export default function Header() {
     const [open, setOpen] = useState(false);
-    const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
-
-    const handleCartIconClick = () => {
-        setIsCartDrawerOpen(true);
-    };
-
-    const closeCartDrawer = () => {
-        setIsCartDrawerOpen(false);
-    };
 
     return (
         <>
@@ -36,31 +27,32 @@ export default function Header() {
                         <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="/shop">
                         Shop
                         </a>
-                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black scroll-smooth" href="#about">
+                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black scroll-smooth" href="/#about">
                         About
                         </a>
-                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="#">
+                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="/contact">
                         Contact
                         </a>
                     </nav>
                     <nav className="flex w-20 items-center justify-between" >
-                        <div
-                            className="flex lg:ml-auto"
-                            disabled={open}
-                            onClick={handleCartIconClick}
-                            aria-label="Open cart"
-                        >
-                            <ShoppingCartIcon />
-                        </div>
                         { !open ?
-                            <button
-                                className={`flex justify-center items-center lg:hidden transition-all duration-250 ${open ? "text-white" : "text-black"}`}
-                                onClick={() => setOpen(!open)}
-                                aria-label="Open menu"
-                            >
-                                <MenuIcon />
-                            </button> :
-                            <div className="ml-3 flex h-7 items-center">
+                            <>
+                                <div
+                                    className="flex lg:ml-auto"
+                                    disabled={open}
+                                    aria-label="Open cart"
+                                >
+                                    <ShoppingCartIcon />
+                                </div>
+                                <button
+                                    className={`flex justify-center items-center lg:hidden transition-all duration-250 ${open ? "text-white" : "text-black"}`}
+                                    onClick={() => setOpen(!open)}
+                                    aria-label="Open menu"
+                                >
+                                    <MenuIcon />
+                                </button>
+                            </> :
+                            <div className="mr-0 ml-auto flex h-7 items-end justify-end">
                                 <button
                                     onClick={() => setOpen(!open)}
                                     type="button"
@@ -90,7 +82,7 @@ export default function Header() {
                 </div>
                 <DropdownMenu open={open} setOpen={setOpen}/>
             </header>
-            <CartDrawer isOpen={isCartDrawerOpen} onClose={closeCartDrawer} />
+            <CartDrawer />
         </>
 
     );

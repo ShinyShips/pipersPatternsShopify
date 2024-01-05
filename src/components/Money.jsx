@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 
 export default function PriceDisplay({ price, showCurrency = false }) {
-    const [formatPrice, setFormatPrice] = useState('');
-    console.log(formatPrice)
+    let formattedPrice = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: price.currencyCode,
+        currencyDisplay: showCurrency ? 'symbol' : 'narrowSymbol',
+        }).format(parseFloat(price.amount));
+
+    const [formatPrice, setFormatPrice] = useState(formattedPrice);
 
     useEffect(() => {
-        const formattedPrice = new Intl.NumberFormat('en-US', {
+        formattedPrice = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: price.currencyCode,
         currencyDisplay: showCurrency ? 'symbol' : 'narrowSymbol',
@@ -14,5 +19,5 @@ export default function PriceDisplay({ price, showCurrency = false }) {
         setFormatPrice(formattedPrice);
     }, [price, showCurrency]);
 
-    return <span>${price.amount || formatPrice}</span>;
+    return <span>{formatPrice}</span>;
 }

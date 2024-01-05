@@ -2,6 +2,8 @@
 import Products from '../components/Products.astro';
 import Layout from '../layouts/Layout.astro';
 import { getProducts } from '../utils/shopify';
+import { Image } from 'astro:assets';
+import banner from '../assets/banner.png';
 
 const headers = Astro.request.headers;
 const ip = headers.get("x-vercel-forwarded-for") || Astro.clientAddress;
@@ -9,6 +11,6 @@ const products = await getProducts({ buyerIP: ip });
 
 ---
 
-<Layout title="Piper's Patterns">
+<Layout title="Piper's Patterns Shop">
     <Products products={products} />
 </Layout>

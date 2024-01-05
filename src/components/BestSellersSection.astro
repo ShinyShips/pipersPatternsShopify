@@ -1,5 +1,8 @@
 ---
 import Card from './Card.astro';
+import holiday from '../assets/holiday.webp';
+import patriotic from '../assets/patriotic.webp';
+import sports from '../assets/sports.webp';
 ---
 
 
@@ -16,19 +19,19 @@ import Card from './Card.astro';
         </div>
         <div class="mx-auto grid w-4/5 items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3  ">
             <Card
-                imagePath="https://ik.imagekit.io/3baypac61/holiday.webp"
+                imagePath={holiday}
                 name='Holiday Bandanas'
                 description= 'Perfect for the holiday season this year'
                 href="holiday-bandanas"
             />
             <Card 
-                imagePath="https://ik.imagekit.io/3baypac61/patriotic.webp"
+                imagePath={patriotic}
                 name='Patriotic Bandanas'
                 description= 'Show off your patriotic side with these patterns'
-                href="patriotic-bandanas"
+                href="patriot-bandanas"
             />
             <Card
-                imagePath="https://ik.imagekit.io/3baypac61/sports.webp"
+                imagePath={sports}
                 name='Sports Team Bandanas'
                 description= 'Lets go sports!'
                 href="sports-bandanas"
