@@ -30,7 +30,7 @@ export default function Header() {
                         <a className="text-sm font-bold hover:text-black underline-offset-4 text-black scroll-smooth" href="/#about">
                         About
                         </a>
-                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="#">
+                        <a className="text-sm font-bold hover:text-black underline-offset-4 text-black" href="/contact">
                         Contact
                         </a>
                     </nav>

@@ -3,15 +3,36 @@
     overflow: hidden;
     transform: translate3d(0, 0, 0);
 }
-#images {
-    background: url(../assets/Reviews.png);
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 600%;
-    animation: slideshow 60s linear infinite;
+#imageWrapper:nth-child(even) {
+    padding-top: 2rem;
 }
+
+#box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+    color: black;
+    font-size: 21px;
+    cursor: pointer;
+    padding: 2rem;
+    flex-grow: 1;
+    max-width: 20rem;
+    min-width: 15rem;
+}
+
+#imageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 @keyframes slideshow {
     100% { 
         transform: translateX(-84%);  

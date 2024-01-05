@@ -35,7 +35,7 @@ function AddToCartForm({ variantId, variantQuantityAvailable, variantAvailableFo
 
       <button
         type="submit"
-        className="flex justify-center button mt-10 w-full bg-black text-white py-3 rounded hover:bg-gray-900 disabled:bg-gray-400"
+        className={`flex justify-center button mt-10 w-full bg-black text-white py-3 rounded hover:bg-gray-900 disabled:bg-gray-400 ${noQuantityLeft || !variantAvailableForSale ? 'cursor-not-allowed' : ''}`}
         disabled={$isCartUpdating || noQuantityLeft || !variantAvailableForSale}
       >
         {$isCartUpdating &&

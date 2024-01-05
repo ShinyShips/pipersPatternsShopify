@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import holiday from "../assets/holiday.webp";
+---
+
+<div class="lg:h-screen overflow-hidden">
+    <div class="relative ">
+        <div class="realtive w-full h-48 bg-gradient-to-r from-purple-500 to-pink-500" />
+        <div class="absolute inset-0 flex flex-col justify-center px-8">
+            <h1 class="text-4xl font-bold text-white">Contact Us</h1>
+            <div class="flex py-2">
+                <a href="/" class="text-white hover:text-gray-200">Home</a>
+                <p class="text-white mx-2">/</p>
+                <p class="text-gray-200">Contact</p>
+            </div>
+        </div>
+    </div>
+    <section class="flex flex-col w-full h-fit p-4 justify-center items-center lg:flex-row">
+        <div class=" max-w-lg mx-4">
+            <h1 class="text-xl font-semibold mb-2">CONTACT</h1>
+            <h2 class=" text-4xl font-black">Get in Touch</h2>
+            <p class="text-sm py-4 mb-8">How can I help? Want to request a custom pattern? I specialize in creating custom bandanas for dogs, cats, or any pet friend you have rght here in Hoboken, New Jersey!</p>
+            <div class="relative">
+                <div class="absolute w-full h-full bg-black border-black translate-x-1 translate-y-1 "></div>
+                <form class="relative flex flex-col py-8 px-4 bg-brand-yellow border-2 border-black " name="contact" method="POST" data-netlify="true">
+                    <div class="flex flex-col pb-4 mb-2">
+                        <label class="font-bold">Name:</label>
+                        <div class="relative">
+                            <div class="absolute h-full w-full bg-black border-black translate-x-1 translate-y-1 "></div>
+                            <input type="text" name="name" placeholder="Name" class="relative w-full py-2 px-4 border-2 border-black "/>
+                        </div>
+                    </div>
+                    <div class="flex flex-col pb-4 mb-2">
+                        <label class="font-bold">Email:</label>
+                        <div class="relative">
+                            <div class="absolute h-full w-full bg-black border-black translate-x-1 translate-y-1 "></div>
+                            <input type="email" name="email" placeholder="example@domain.com" class="relative w-full py-2 px-4 border-2 border-black "/>
+                        </div>
+                    </div>
+                    <div class="flex flex-col pb-4">
+                        <label class="font-bold">Message:</label>
+                        <div class="relative">
+                            <div class="absolute h-[90%] w-full bg-black border-black translate-x-1 translate-y-1 " />
+                            <textarea name="message" placeholder="Write message..." class="relative w-full py-2 px-4 border-2 border-black "></textarea>
+                        </div>
+                    </div>
+                    <div class="pt-4">
+                        <button class="flex w-full justify-center items-center bg-black text-white py-4 border-2 border-black" type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="relative flex justify-center mt-8 w-full p-4">
+            <Image
+                class="w-full h-full max-w-sm rounded-lg filter brightness-75"
+                width="200"
+                height="170"
+                src={holiday}
+                alt="Contact" 
+            />
+            <div class="absolute flex flex-col gap-4 w-full h-fit bottom-4 max-w-sm mb-8 px-8 rounded-lg text-white">
+                <div>
+                    <p class="font-bold text-xl">Email</p>
+                    <a href="mailto:contact@example.com" class="text-lg">Click To Email</a>
+                </div>
+                <div>
+                    <p class="font-bold text-xl">Phone</p>
+                    <a href="tel:555-555-5555" class="text-lg">555-555-5555</a>
+                </div>
+                <div>
+                    <p class="font-bold text-xl">Address</p>
+                    <a href="https://goo.gl/maps/8Z8QZ9J2Z9Z9Z9Z9Z" class="text-lg">123 Main St, Hoboken, NJ 07030</a>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+</div>
+
+

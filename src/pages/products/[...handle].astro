@@ -32,45 +32,48 @@ setCache.short(Astro);
     <NotFoundLayout title="Product not found" message="Product not found" />
   ) : (
     <Layout title={product.title}>
-      <div class="container pt-6">
-        <ProductBreadcrumb title={product.title} />
-      </div>
-
-      <section class="container px-4">
-        <div class="pb-16 pt-6 lg:grid lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-7">
-            <ProductImageGallery images={product.images} />
-          </div>
-
-          <div class="mt-8 lg:col-span-5 lg:mt-0">
-            <ProductInformations
-              title={product.title}
-              price={firstVariant?.price}
-            />
-
-            <div>
-              <AddToCartForm
-                client:load
-                variantId={firstVariant?.id}
-                variantQuantityAvailable={firstVariant?.quantityAvailable}
-                variantAvailableForSale={firstVariant?.availableForSale}
-              />
-            </div>
-
-            <div class="mt-8">
-              <ProductAccordions />
-            </div>
-          </div>
+      <div class="flex flex-col justify-center items-center">
+        <div class="container pt-6">
+          <ProductBreadcrumb title={product.title} />
         </div>
-      </section>
 
-      <section class="container">
-        <ProductReviews />
-      </section>
+        <section class="container px-4">
+          <div class="pb-16 pt-6 lg:grid lg:grid-cols-12 lg:gap-20">
+            <div class="lg:col-span-7">
+              <ProductImageGallery images={product.images} />
+            </div>
 
-      <section class="container">
-        <ProductRecommendations productId={product.id} buyerIP={ip} />
-      </section>
+            <div class="mt-8 lg:col-span-5 lg:mt-0">
+              <ProductInformations
+                title={product.title}
+                price={firstVariant?.price}
+              />
+
+              <div>
+                <AddToCartForm
+                  client:load
+                  variantId={firstVariant?.id}
+                  variantQuantityAvailable={firstVariant?.quantityAvailable}
+                  variantAvailableForSale={firstVariant?.availableForSale}
+                />
+              </div>
+
+              <div class="mt-8">
+                <ProductAccordions />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="container">
+          <ProductReviews />
+        </section>
+
+        <section class="container">
+          <ProductRecommendations productId={product.id} buyerIP={ip} />
+        </section>
+      </div>
+      
     </Layout>
   )
 }

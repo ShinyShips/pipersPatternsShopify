@@ -11,7 +11,7 @@ export default function DropdownMenu({open, setOpen}) {
                 <a className="text-xl hover:text-gray-400 underline-offset-4 text-white pt-8" href="/#about" onClick={() => setOpen(!open)}>
                     About
                 </a>
-                <a className="text-xl hover:text-gray-400 underline-offset-4 text-white pt-8" href="#" onClick={() => setOpen(!open)}>
+                <a className="text-xl hover:text-gray-400 underline-offset-4 text-white pt-8" href="/contact" onClick={() => setOpen(!open)}>
                     Contact
                 </a>
             </nav>
