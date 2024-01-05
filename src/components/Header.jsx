@@ -11,10 +11,10 @@ export default function Header() {
     const [open, setOpen] = useState(false);
 
     return (
-        <>
+        <header className="fixed top- left-0 z-50 w-screen">
             <AnnouncementBar open={open} />
-            <header>
-                <div className={`relative px-4 lg:px-6 h-14 flex items-center justify-between z-20 transition-all duration-200 ${open ? "bg-black border-white" : "bg-white border-black"}  border-b-2 border-t-2`}>
+            <div>
+                <div className={`relative px-4 lg:px-6 h-14 flex items-center justify-between z-20 transition-all duration-500 ${open ? "bg-black border-white" : "bg-white border-black"}  border-b-2 border-t-2`}>
                     <a className="relative flex items-center justify-center" href="/">
                         <DogIcon />
                         <span className="lg:flex ml-2 text-lg font-extrabold tracking-wide text-black">Piper's Patterns</span>
@@ -81,9 +81,9 @@ export default function Header() {
                     </nav>
                 </div>
                 <DropdownMenu open={open} setOpen={setOpen}/>
-            </header>
+            </div>
             <CartDrawer />
-        </>
+        </header>
 
     );
 }
